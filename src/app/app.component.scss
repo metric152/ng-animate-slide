@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .prev, .next {
+    font-size: 5em;
+    margin: auto 20px;
+  }
+
+  .blocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .child {
+      display: flex;
+      // position: relative;
+      width: 100px;
+      height: 100px;
+      margin: auto 10px;
+      border: 1px solid black;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

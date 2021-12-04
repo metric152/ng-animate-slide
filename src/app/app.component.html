@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="prev" (click)="update(-1)">&lt;</div>
+  <div class="blocks" >
+    <!-- Place the animation trigger on the element that's changing -->
+    <!-- I need to figure out how to isolate the element that's leaving the page -->
+    <div class="child" @newBlockElement *ngFor="let block of blocks">{{block}}</div>
+  </div>
+  <div class="next" (click)="update(1)">&gt;</div>
+</div>
