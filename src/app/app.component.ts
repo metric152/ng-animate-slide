@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { trigger, transition, style, animate, query, AnimationEvent } from '@angular/animations';
+import { trigger, transition, style, animate, query, group, AnimationEvent } from '@angular/animations';
 
 const BACKWARD = 'backward';
 const FORWARD = 'forward';
-const TRANSITION_TIME = '2000ms';
+const TRANSITION_TIME = '500ms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,22 +11,26 @@ const TRANSITION_TIME = '2000ms';
   animations: [
     trigger('newBlockElement', [
       transition(`* => ${FORWARD}`, [
-        query(':enter', [
-          style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%)' }),
-          animate(TRANSITION_TIME, style({ opacity: 1, borderColor: 'black', transform: 'translateX(0)' }))
-        ], { optional: true }),
-        query(':leave', [
-          animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%)'}))
-        ], { optional: true })
+        group([
+          query(':enter', [
+            style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%)' }),
+            animate(TRANSITION_TIME, style({ opacity: 1, borderColor: 'black', transform: 'translateX(0)' }))
+          ], { optional: true }),
+          query(':leave', [
+            animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%)' }))
+          ], { optional: true })
+        ])
       ]),
       transition(`* => ${BACKWARD}`, [
-        query(':enter', [
-          style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%)' }),
-          animate(TRANSITION_TIME, style({ opacity: 1, borderColor: 'black', transform: 'translateX(0)' }))
-        ], { optional: true }),
-        query(':leave', [
-          animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%)' }))
-        ], { optional: true })
+        group([
+          query(':enter', [
+            style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%)' }),
+            animate(TRANSITION_TIME, style({ opacity: 1, borderColor: 'black', transform: 'translateX(0)' }))
+          ], { optional: true }),
+          query(':leave', [
+            animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%)' }))
+          ], { optional: true })
+        ])
       ])
     ])
   ]
