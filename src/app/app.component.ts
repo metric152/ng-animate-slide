@@ -10,25 +10,32 @@ const TRANSITION_TIME = '500ms';
   styleUrls: ['./app.component.scss'],
   animations: [
     trigger('newBlockElement', [
+      // Transition from any state to forward
       transition(`* => ${FORWARD}`, [
+        // Run the leaving and entering animation at the same time
         group([
           query(':enter', [
-            style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%)' }),
-            animate(TRANSITION_TIME, style({ opacity: 1, borderColor: 'black', transform: 'translateX(0)' }))
+            // Style the starting point
+            style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%) scale(0.5)' }),
+            // Animation properties to their end value
+            animate(TRANSITION_TIME, style({ opacity: 1, borderColor: '#3E6FB5', transform: 'translateX(0) scale(1)' }))
           ], { optional: true }),
           query(':leave', [
-            animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%)' }))
+            style({ position: 'absolute', top: 0, left: 0, 'z-index': 1 }),
+            animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%) scale(0.5)' }))
           ], { optional: true })
         ])
       ]),
+      // Transition from any state to backwards
       transition(`* => ${BACKWARD}`, [
         group([
           query(':enter', [
-            style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%)' }),
-            animate(TRANSITION_TIME, style({ opacity: 1, borderColor: 'black', transform: 'translateX(0)' }))
+            style({ opacity: 0, borderColor: 'red', transform: 'translateX(-100%) scale(0.5)' }),
+            animate(TRANSITION_TIME, style({ opacity: 1, borderColor: '#3E6FB5', transform: 'translateX(0) scale(1)' }))
           ], { optional: true }),
           query(':leave', [
-            animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%)' }))
+            style({ position: 'absolute', top: 0, right: 0, 'z-index': 1 }),
+            animate(TRANSITION_TIME, style({ opacity: 0, borderColor: 'red', transform: 'translateX(100%) scale(0.5)' }))
           ], { optional: true })
         ])
       ])

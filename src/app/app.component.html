@@ -1,6 +1,6 @@
 <div class="container">
   <div class="prev" (click)="update(DIRECTION_BACKWARD)">&lt;</div>
-  <!-- Place the animation trigger on the element that contains the changes -->
+  <!-- Place the animation listener on the parent to hear the events of the children-->
   <div class="blocks" [@newBlockElement]="direction" (@newBlockElement.done)="onAnimation($event)">
     <!-- I need to figure out how to isolate the element that's leaving the page -->
     <!-- Use 'query' to isolate the new and old element -->

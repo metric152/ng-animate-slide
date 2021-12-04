@@ -1,7 +1,9 @@
 .container {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: center;
+  margin-top: calc(50vh - 100px);
 
   .prev, .next {
     font-size: 5em;
@@ -20,10 +22,12 @@
       width: 100px;
       height: 100px;
       margin: auto 10px;
-      border: 1px solid black;
+      border: 3px solid #3E6FB5;
       box-sizing: border-box;
       justify-content: center;
       align-items: center;
+      background-color: #F19A5D;
+      color: #fff;
     }
   }
 }
