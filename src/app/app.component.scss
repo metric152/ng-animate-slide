@@ -16,11 +16,12 @@
 
     .child {
       display: flex;
-      // position: relative;
+      position: relative;
       width: 100px;
       height: 100px;
       margin: auto 10px;
       border: 1px solid black;
+      box-sizing: border-box;
       justify-content: center;
       align-items: center;
     }
