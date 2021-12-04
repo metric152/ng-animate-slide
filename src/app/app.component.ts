@@ -3,7 +3,7 @@ import { trigger, transition, style, animate, query, AnimationEvent } from '@ang
 
 const BACKWARD = 'backward';
 const FORWARD = 'forward';
-const TRANSITION_TIME = '200ms';
+const TRANSITION_TIME = '2000ms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
