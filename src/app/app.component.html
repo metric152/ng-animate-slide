@@ -1,9 +1,10 @@
 <div class="container">
-  <div class="prev" (click)="update(-1)">&lt;</div>
-  <div class="blocks" >
-    <!-- Place the animation trigger on the element that's changing -->
+  <div class="prev" (click)="update(DIRECTION_BACKWARD)">&lt;</div>
+  <!-- Place the animation trigger on the element that contains the changes -->
+  <div class="blocks" [@newBlockElement]="direction" (@newBlockElement.done)="onAnimation($event)">
     <!-- I need to figure out how to isolate the element that's leaving the page -->
-    <div class="child" @newBlockElement *ngFor="let block of blocks">{{block}}</div>
+    <!-- Use 'query' to isolate the new and old element -->
+    <div class="child" *ngFor="let block of blocks">{{block}}</div>
   </div>
-  <div class="next" (click)="update(1)">&gt;</div>
+  <div class="next" (click)="update(DIRECTION_FORWARD)">&gt;</div>
 </div>
