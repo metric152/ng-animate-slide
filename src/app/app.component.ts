@@ -55,18 +55,17 @@ export class AppComponent {
   DIRECTION_BACKWARD = -1;
 
   update(direction: number) {
-    // This is backwards
-    if (direction < 0) {
-      this.blocks.pop();
-      this.blocks.unshift(this.blocks[0] - 1);
-      this.direction = BACKWARD;
-    }
-
-    // This is forwards
-    if (direction > 0) {
-      this.blocks.shift();
-      this.blocks.push(this.blocks[this.blocks.length - 1] + 1);
-      this.direction = FORWARD;
+    switch(direction) {
+      case this.DIRECTION_BACKWARD:
+        this.blocks.pop();
+        this.blocks.unshift(this.blocks[0] - 1);
+        this.direction = BACKWARD;
+        break;
+      case this.DIRECTION_FORWARD:
+        this.blocks.shift();
+        this.blocks.push(this.blocks[this.blocks.length - 1] + 1);
+        this.direction = FORWARD;
+        break;
     }
   }
 
