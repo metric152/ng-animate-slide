@@ -47,6 +47,7 @@ export class AppComponent {
    * We need to query the :enter/:leaving element
    * https://angular.io/guide/complex-animation-sequences#filter-animation-example
    * https://javascript.plainenglish.io/more-complex-angular-animations-47015a42a8d1
+   * https://indepth.dev/posts/1285/in-depth-guide-into-animations-in-angular
    */
   blocks = [1, 2, 3];
   direction: string = '';
